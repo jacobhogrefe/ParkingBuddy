@@ -56,21 +56,26 @@ public class ParkingBuddy
     {
         System.out.println("\nPriority | Space Number | Availiability");
 
+        ParkingSpace[] northLot = new ParkingSpace[100];
+        for(int i = 0; i < northLot.length; i++){
+            northLot[i] = new ParkingSpace(i);
+        }
+
         for (int i = 0; i < 100; i++)
         {
             System.out.println("------------------------------------------");
             
             if (Integer.toString(i).length() == 1)
             {
-                System.out.println(1 + "        | " + i + "            | Open");
+                System.out.println(1 + "        | " + i + "            | " + northLot[i].isSpaceFull());
             }
             else if (Integer.toString(i).length() == 2)
             {
-                System.out.println(1 + "        | " + i + "           | Open");
+                System.out.println(1 + "        | " + i + "           | " + northLot[i].isSpaceFull());
             }
             else if (Integer.toString(i).length() == 3)
             {
-                System.out.println(1 + "        | " + i + "          | Open");
+                System.out.println(1 + "        | " + i + "          | " + northLot[i].isSpaceFull());
             }
         }
     }
