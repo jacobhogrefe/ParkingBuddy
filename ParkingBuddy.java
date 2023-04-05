@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
 
+import org.w3c.dom.traversal.NodeFilter;
+
 public class ParkingBuddy 
 {
     private static Scanner userInput = new Scanner(System.in);
@@ -82,8 +84,6 @@ public class ParkingBuddy
 
     private static void printParkingSpaces()
     {
-        System.out.println("\nPriority | Space Number | Availiability");
-
         for (int i = 0; i < genericLotList.size(); i++)
         {
             System.out.println("------------------------------------------");

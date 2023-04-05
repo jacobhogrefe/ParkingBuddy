@@ -23,7 +23,7 @@ public class ParkingSpace
     {
         if (isSpaceFull)
         {
-            return "Occupied";
+            return "Taken";
         }
         else
         {
