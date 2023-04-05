@@ -19,8 +19,13 @@ public class ParkingSpace {
     public void setHandicappedSpace(boolean handicappedSpace) {
         this.handicappedSpace = handicappedSpace;
     }
-    public boolean isSpaceFull() {
-        return isSpaceFull;
+    public String isSpaceFull() {
+        if(isSpaceFull){
+            return "Taken";
+        }
+        else {
+            return "Open";
+        }
     }
     public void setSpaceFull(boolean isSpaceFull) {
         this.isSpaceFull = isSpaceFull;
