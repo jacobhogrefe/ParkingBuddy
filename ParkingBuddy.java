@@ -4,6 +4,8 @@ import java.util.Scanner;
 import javax.lang.model.util.ElementScanner14;
 import javax.security.auth.callback.ChoiceCallback;
 
+import org.w3c.dom.traversal.NodeFilter;
+
 public class ParkingBuddy 
 {
     private static Scanner userInput = new Scanner(System.in);
@@ -52,30 +54,223 @@ public class ParkingBuddy
         return choice;
     }
 
-    private static void printParkingSpaces()
+    private static void printParkingSpaces(int campusChoice, int lotChoice)
     {
         System.out.println("\nPriority | Space Number | Availiability");
+        if(campusChoice == 1 && lotChoice == 1){ //North lot choice
+            ParkingSpace[] northLot = new ParkingSpace[100];
+            for(int i = 0; i < northLot.length; i++){
+                northLot[i] = new ParkingSpace(i);
+            }
 
-        ParkingSpace[] northLot = new ParkingSpace[100];
-        for(int i = 0; i < northLot.length; i++){
-            northLot[i] = new ParkingSpace(i);
+            for (int i = 0; i < 100; i++)
+            {
+                System.out.println("------------------------------------------");
+                
+                if (Integer.toString(i).length() == 1)
+                {
+                    System.out.println(1 + "        | " + i + "            | " + northLot[i].isSpaceFull());
+                }
+                else if (Integer.toString(i).length() == 2)
+                {
+                    System.out.println(1 + "        | " + i + "           | " + northLot[i].isSpaceFull());
+                }
+                else if (Integer.toString(i).length() == 3)
+                {
+                    System.out.println(1 + "        | " + i + "          | " + northLot[i].isSpaceFull());
+                }
+            }
         }
+        else if(campusChoice == 1 && lotChoice == 2){ //Hogan lot choice
+            ParkingSpace[] hoganLot = new ParkingSpace[100];
+            for(int i = 0; i < hoganLot.length; i++){
+                hoganLot[i] = new ParkingSpace(i);
+            }
 
-        for (int i = 0; i < 100; i++)
-        {
-            System.out.println("------------------------------------------");
-            
-            if (Integer.toString(i).length() == 1)
+            for (int i = 0; i < 100; i++)
             {
-                System.out.println(1 + "        | " + i + "            | " + northLot[i].isSpaceFull());
+                System.out.println("------------------------------------------");
+                
+                if (Integer.toString(i).length() == 1)
+                {
+                    System.out.println(1 + "        | " + i + "            | " + hoganLot[i].isSpaceFull());
+                }
+                else if (Integer.toString(i).length() == 2)
+                {
+                    System.out.println(1 + "        | " + i + "           | " + hoganLot[i].isSpaceFull());
+                }
+                else if (Integer.toString(i).length() == 3)
+                {
+                    System.out.println(1 + "        | " + i + "          | " + hoganLot[i].isSpaceFull());
+                }
             }
-            else if (Integer.toString(i).length() == 2)
-            {
-                System.out.println(1 + "        | " + i + "           | " + northLot[i].isSpaceFull());
+        }
+        else if(campusChoice == 1 && lotChoice == 3){ //Hilltop Lot choice
+            ParkingSpace[] hilltopLot = new ParkingSpace[100];
+            for(int i = 0; i < hilltopLot.length; i++){
+                hilltopLot[i] = new ParkingSpace(i);
             }
-            else if (Integer.toString(i).length() == 3)
+
+            for (int i = 0; i < 100; i++)
             {
-                System.out.println(1 + "        | " + i + "          | " + northLot[i].isSpaceFull());
+                System.out.println("------------------------------------------");
+                
+                if (Integer.toString(i).length() == 1)
+                {
+                    System.out.println(1 + "        | " + i + "            | " + hilltopLot[i].isSpaceFull());
+                }
+                else if (Integer.toString(i).length() == 2)
+                {
+                    System.out.println(1 + "        | " + i + "           | " + hilltopLot[i].isSpaceFull());
+                }
+                else if (Integer.toString(i).length() == 3)
+                {
+                    System.out.println(1 + "        | " + i + "          | " + hilltopLot[i].isSpaceFull());
+                }
+            }
+        }
+        else if(campusChoice == 2 && lotChoice == 1){ //YH Parking Garage
+            ParkingSpace[] yhGarage = new ParkingSpace[100];
+            for(int i = 0; i < yhGarage.length; i++){
+                yhGarage[i] = new ParkingSpace(i);
+            }
+
+            for (int i = 0; i < 100; i++)
+            {
+                System.out.println("------------------------------------------");
+                
+                if (Integer.toString(i).length() == 1)
+                {
+                    System.out.println(1 + "        | " + i + "            | " + yhGarage[i].isSpaceFull());
+                }
+                else if (Integer.toString(i).length() == 2)
+                {
+                    System.out.println(1 + "        | " + i + "           | " + yhGarage[i].isSpaceFull());
+                }
+                else if (Integer.toString(i).length() == 3)
+                {
+                    System.out.println(1 + "        | " + i + "          | " + yhGarage[i].isSpaceFull());
+                }
+            }
+        }
+        else if(campusChoice == 2 && lotChoice == 2){ //Eastview Lot
+            ParkingSpace[] eastviewLot = new ParkingSpace[100];
+            for(int i = 0; i < eastviewLot.length; i++){
+                eastviewLot[i] = new ParkingSpace(i);
+            }
+
+            for (int i = 0; i < 100; i++)
+            {
+                System.out.println("------------------------------------------");
+                
+                if (Integer.toString(i).length() == 1)
+                {
+                    System.out.println(1 + "        | " + i + "            | " + eastviewLot[i].isSpaceFull());
+                }
+                else if (Integer.toString(i).length() == 2)
+                {
+                    System.out.println(1 + "        | " + i + "           | " + eastviewLot[i].isSpaceFull());
+                }
+                else if (Integer.toString(i).length() == 3)
+                {
+                    System.out.println(1 + "        | " + i + "          | " + eastviewLot[i].isSpaceFull());
+                }
+            }
+        }
+        else if(campusChoice == 2 && lotChoice == 3){
+            ParkingSpace[] westviewLot = new ParkingSpace[100];
+            for(int i = 0; i < westviewLot.length; i++){
+                westviewLot[i] = new ParkingSpace(i);
+            }
+
+            for (int i = 0; i < 100; i++)
+            {
+                System.out.println("------------------------------------------");
+                
+                if (Integer.toString(i).length() == 1)
+                {
+                    System.out.println(1 + "        | " + i + "            | " + westviewLot[i].isSpaceFull());
+                }
+                else if (Integer.toString(i).length() == 2)
+                {
+                    System.out.println(1 + "        | " + i + "           | " + westviewLot[i].isSpaceFull());
+                }
+                else if (Integer.toString(i).length() == 3)
+                {
+                    System.out.println(1 + "        | " + i + "          | " + westviewLot[i].isSpaceFull());
+                }
+            }
+        }
+        else if(campusChoice == 3 && lotChoice == 1){ //NH General Lot
+            ParkingSpace[] nhGeneral = new ParkingSpace[100];
+            for(int i = 0; i < nhGeneral.length; i++){
+                nhGeneral[i] = new ParkingSpace(i);
+            }
+
+            for (int i = 0; i < 100; i++)
+            {
+                System.out.println("------------------------------------------");
+                
+                if (Integer.toString(i).length() == 1)
+                {
+                    System.out.println(1 + "        | " + i + "            | " + nhGeneral[i].isSpaceFull());
+                }
+                else if (Integer.toString(i).length() == 2)
+                {
+                    System.out.println(1 + "        | " + i + "           | " + nhGeneral[i].isSpaceFull());
+                }
+                else if (Integer.toString(i).length() == 3)
+                {
+                    System.out.println(1 + "        | " + i + "          | " + nhGeneral[i].isSpaceFull());
+                }
+            }
+        }
+        else if(campusChoice == 3 && lotChoice == 2){ //General Surface Lot
+            ParkingSpace[] genSurface = new ParkingSpace[100];
+            for(int i = 0; i < genSurface.length; i++){
+                genSurface[i] = new ParkingSpace(i);
+            }
+
+            for (int i = 0; i < 100; i++)
+            {
+                System.out.println("------------------------------------------");
+                
+                if (Integer.toString(i).length() == 1)
+                {
+                    System.out.println(1 + "        | " + i + "            | " + genSurface[i].isSpaceFull());
+                }
+                else if (Integer.toString(i).length() == 2)
+                {
+                    System.out.println(1 + "        | " + i + "           | " + genSurface[i].isSpaceFull());
+                }
+                else if (Integer.toString(i).length() == 3)
+                {
+                    System.out.println(1 + "        | " + i + "          | " + genSurface[i].isSpaceFull());
+                }
+            }
+        }
+        else if(campusChoice == 3 && lotChoice == 3){ //Front Lot
+            ParkingSpace[] frontLot = new ParkingSpace[100];
+            for(int i = 0; i < frontLot.length; i++){
+                frontLot[i] = new ParkingSpace(i);
+            }
+
+            for (int i = 0; i < 100; i++)
+            {
+                System.out.println("------------------------------------------");
+                
+                if (Integer.toString(i).length() == 1)
+                {
+                    System.out.println(1 + "        | " + i + "            | " + frontLot[i].isSpaceFull());
+                }
+                else if (Integer.toString(i).length() == 2)
+                {
+                    System.out.println(1 + "        | " + i + "           | " + frontLot[i].isSpaceFull());
+                }
+                else if (Integer.toString(i).length() == 3)
+                {
+                    System.out.println(1 + "        | " + i + "          | " + frontLot[i].isSpaceFull());
+                }
             }
         }
     }
@@ -141,7 +336,7 @@ public class ParkingBuddy
         }
         else
         {
-            printParkingSpaces();
+            printParkingSpaces(choice, answer);
 
             System.out.println("\nDo you want to view another lot?");
             System.out.println("1. Yes");
