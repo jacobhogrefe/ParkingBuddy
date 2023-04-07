@@ -21,14 +21,11 @@ public class ParkingSpace
 
     public String isSpaceFull() 
     {
-        if (isSpaceFull)
-        {
-            return "Taken";
-        }
-        else
-        {
-            return "Open";
-        }
+        return isSpaceFull ? "Taken" : "Open";
+    }
+
+    public boolean spaceFilled() {
+        return isSpaceFull;
     }
 
     public void setSpaceFull(boolean isSpaceFull) 

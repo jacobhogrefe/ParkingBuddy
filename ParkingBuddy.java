@@ -2,8 +2,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
 
-import org.w3c.dom.traversal.NodeFilter;
-
 public class ParkingBuddy 
 {
     private static Scanner userInput = new Scanner(System.in);
@@ -84,21 +82,28 @@ public class ParkingBuddy
 
     private static void printParkingSpaces()
     {
-        for (int i = 0; i < genericLotList.size(); i++)
+        //only displays the first 10 spaces
+        int bound = genericLotList.size() <= 10 ? genericLotList.size() : 10;
+        for (int i = 0; i < bound; i++)
         {
-            System.out.println("------------------------------------------");
-            
-            if (Integer.toString(i + 1).length() == 1)
-            {
-                System.out.println(genericLotList.get(i).getPriority() + "        | " + (genericLotList.indexOf(genericLotList.get(i)) + 1) + "            | " + genericLotList.get(i).isSpaceFull());
-            }
-            else if (Integer.toString(i + 1).length() == 2)
-            {
-                System.out.println(genericLotList.get(i).getPriority() + "        | " + (genericLotList.indexOf(genericLotList.get(i)) + 1) + "           | " + genericLotList.get(i).isSpaceFull());
-            }
-            else if (Integer.toString(i + 1).length() == 3)
-            {
-                System.out.println(genericLotList.get(i).getPriority() + "        | " + (genericLotList.indexOf(genericLotList.get(i)) + 1) + "          | " + genericLotList.get(i).isSpaceFull());
+            ParkingSpace space = genericLotList.get(i);
+            if (!space.spaceFilled()) {
+                System.out.println("------------------------------------------");
+                if (Integer.toString(i + 1).length() == 1)
+                {
+                    System.out.println(space.getPriority() + "        | " + (genericLotList.indexOf(space) + 1) + "            | " + space.isSpaceFull());
+                }
+                else if (Integer.toString(i + 1).length() == 2)
+                {
+                    System.out.println(space.getPriority() + "        | " + (genericLotList.indexOf(space) + 1) + "           | " + space.isSpaceFull());
+                }
+                else if (Integer.toString(i + 1).length() == 3)
+                {
+                    System.out.println(space.getPriority() + "        | " + (genericLotList.indexOf(space) + 1) + "          | " + space.isSpaceFull());
+                }
+            } else {
+                //if a space is taken, the bound is increased by 1 to make up for not displaying that space
+                bound++;
             }
         }
     }
