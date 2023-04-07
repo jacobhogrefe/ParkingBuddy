@@ -1,39 +1,38 @@
-public class ParkingSpace {
-    private boolean handicappedSpace;
+public class ParkingSpace 
+{
+    private String priority;
     private boolean isSpaceFull;
-    private int spaceLocation;
 
-    public ParkingSpace(int location){
-        this.handicappedSpace = false;
-        this.isSpaceFull = false;
-        this.spaceLocation = location;
+    public ParkingSpace(String priority, boolean isSpaceFull)
+    {
+        this.priority = priority;
+        this.isSpaceFull = isSpaceFull;
     }
-    public ParkingSpace(int location, String handicap){ //This is for handicapped spaces
-        this.handicappedSpace = true;
-        this.isSpaceFull = false;
-        this.spaceLocation = location;
+
+    public String getPriority() 
+    {
+        return priority;
     }
-    public boolean isHandicappedSpace() {
-        return handicappedSpace;
+
+    public void setPriority(String priority) 
+    {
+        this.priority = priority;
     }
-    public void setHandicappedSpace(boolean handicappedSpace) {
-        this.handicappedSpace = handicappedSpace;
-    }
-    public String isSpaceFull() {
-        if(isSpaceFull){
+
+    public String isSpaceFull() 
+    {
+        if (isSpaceFull)
+        {
             return "Taken";
         }
-        else {
+        else
+        {
             return "Open";
         }
     }
-    public void setSpaceFull(boolean isSpaceFull) {
+
+    public void setSpaceFull(boolean isSpaceFull) 
+    {
         this.isSpaceFull = isSpaceFull;
-    }
-    public int getSpaceLocation() {
-        return spaceLocation;
-    }
-    public void setSpaceLocation(int spaceLocation) {
-        this.spaceLocation = spaceLocation;
     }
 }
